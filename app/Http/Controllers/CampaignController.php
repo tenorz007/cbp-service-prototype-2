@@ -23,4 +23,9 @@ class CampaignController extends Controller
     {
         return response()->json($this->campaign->paginate(10));
     }
+
+    public function fetchPresets(int $campaignId)
+    {
+       return response()->json($this->campaign->find($campaignId)->presets()->paginate(5));
+    }
 }
